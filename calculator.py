@@ -18,20 +18,24 @@ num7=0
 global sign
 sign=-1
 count=0
+#creating a title
 root.title("simple calculator")
+
 e=tk.Entry(root,width=42,borderwidth=5)
 e.grid(row=0,column=0,columnspan=4,padx=10,pady=10)
+# printing numbers on the screen using gui
 def myclick(number1):
-   
     current=e.get()
     e.delete(0,tk.END)
     e.insert(0,str(current)+str(number1))
    
+# clearing the screen 
 def ClearClick():
     global num1,num
     e.delete(0,tk.END)
     num1=0
     num=0
+    #Adding numbers
 def AddClick():
     global num
     global sign
@@ -39,6 +43,7 @@ def AddClick():
     e.delete(0,tk.END)
     num+=float(current1)
     sign=0
+    #subtracting numbers
 def SubClick():
     global num4
     global sign,count
@@ -51,6 +56,7 @@ def SubClick():
     count+=1    
 
     sign=1
+    #Multiplying numbers using a button on screen
 def MultClick():
     global num,num3
     global sign
@@ -58,6 +64,7 @@ def MultClick():
     e.delete(0,tk.END)
     num3*=float(current1)
     sign=2
+    #Dividing numbers using a button 
 def DivideClick():
     global num6
     global sign,count
@@ -68,8 +75,8 @@ def DivideClick():
     else:
         num6/=float(current1) 
     count+=1
-    print(num6)
     sign=3
+    #Finding the result and printing using a button on the screen 
 def EqualClick(): 
     global sign
     global num,num2,num3,num4,num5,num6,num7,count
@@ -96,11 +103,7 @@ def EqualClick():
         num6=0
         count=0
         e.insert(0,num7)
-    #else:
-     #   e.insert(0,int(current1))
- #   hello="hello"+e.get()
-  #  #label1=Label(root,text=e.get())
-   # label1=Label(root,text=hello)
+    
 #Defining Buttons#
 Button1=tk.Button(root,text='1',padx=40,pady=20,command=lambda:myclick(1)) 
 Button2=tk.Button(root,text='2',padx=40,pady=20,command=lambda:myclick(2)) 
@@ -144,9 +147,4 @@ Buttonclear.grid(row=1,column=3)
 
 
 
-#mybutton=Button(root,text="clickme!",state=DISABLED)
-#mybutton=Button(root,text="clickme!",padx=50,command=myclick)
-   
-#mybutton=Button(root,text="Enter your name",padx=50,command=myclick,fg="blue",bg="red")
-#mybutton.pack()
 root.mainloop()
